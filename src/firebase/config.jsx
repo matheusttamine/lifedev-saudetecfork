@@ -1,19 +1,20 @@
 import { initializeApp } from "firebase/app"
 import { getAnalytics } from "firebase/analytics"
-import{ getFireStore } from "firebase/firestore"
-import { getAuthh } from "firebase/auth"
+import{ getFirestore } from "firebase/firestore"
+import { getAuth } from "firebase/auth"
 const firebaseConfig = {
-  apiKey: "AIzaSyD_4y-nK5V3nag6KyNy9KvHfVuX-b4n3h0",
-  authDomain: "lifedev-bachiega.firebaseapp.com",
-  projectId: "lifedev-bachiega",
-  storageBucket: "lifedev-bachiega.firebasestorage.app",
-  messagingSenderId: "729654581957",
-  appId: "1:729654581957:web:3383838b69635aacce6eac",
-  measurementId: "G-DCQNRCXQ8V"
+  apiKey: "AIzaSyABwC5YC7lSaonm8Fv_j-_A8kzhTWOktxo",
+  authDomain: "lifedev-tamine.firebaseapp.com",
+  projectId: "lifedev-tamine",
+  storageBucket: "lifedev-tamine.firebasestorage.app",
+  messagingSenderId: "377294551106",
+  appId: "1:377294551106:web:3def0e45caa498048395db",
+  measurementId: "G-3W6Y86WR9X"
 }
 
 const app = initializeApp(firebaseConfig)
 const analytics = getAnalytics(app)
-const db = getFireStore(app)
+const db = getFirestore(app)
+const auth = getAuth(app)
 
-export {db}
+export {db, auth}

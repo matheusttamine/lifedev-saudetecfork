@@ -10,17 +10,17 @@ const initialState = {
 const insertReducer = (state, action) => {
     switch (action.type) {
         case "LOADING":
-            return{loadig: true, error: null}
+            return{loading: true, error: null}
         case "INSERTED_DOC":
-            return{loadig: true, error: null}
+            return{loading: true, error: null}
         case "ERROR":
-            return{loadig: true, error: action.payload}
+            return{loading: true, error: action.payload}
         default:
             return state
     }
 }
 
-export const useIsertDocument = (docCollection) => {
+export const useInsertDocument = (docCollection) => {
     const [response, dispatch] = useReducer(insertReducer, initialState)
     const [cancelled, setCancelled] = useState(false)
 
@@ -33,14 +33,14 @@ export const useIsertDocument = (docCollection) => {
     const insertDocument = async (document) => {
         checkCancelBeforeDispatch({type:"LOADING"})
         try {
-            const newDocument = {...document, creatAt:Timestamp.now()}
+            const newDocument = {...document, createAt:Timestamp.now()}
             const insertDocument = await addDoc(
                 collection(db, docCollection),
                 newDocument
             )
 
             checkCancelBeforeDispatch({
-                type:"ISERT_DOC",
+                type:"INSERTED_DOC",
                 payload: insertDocument
             })
         } catch (error) {
@@ -52,6 +52,6 @@ export const useIsertDocument = (docCollection) => {
         return () => setCancelled(true)
     }, [])
 
-    return(insertDocument, response)
+    return{insertDocument, response}
 }
 
