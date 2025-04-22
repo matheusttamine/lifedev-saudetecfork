@@ -1,8 +1,7 @@
-
 import { initializeApp } from "firebase/app"
 import { getAnalytics } from "firebase/analytics"
 import{ getFireStore } from "firebase/firestore"
-
+import { getAuthh } from "firebase/auth"
 const firebaseConfig = {
   apiKey: "AIzaSyD_4y-nK5V3nag6KyNy9KvHfVuX-b4n3h0",
   authDomain: "lifedev-bachiega.firebaseapp.com",
